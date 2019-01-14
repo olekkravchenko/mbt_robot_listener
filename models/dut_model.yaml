@@ -1,0 +1,21 @@
+INIT:
+- [Transition From Initial To Empty Cart, Empty Cart, null, 10]
+Empty Cart:
+- [Transition To Product Added, Product Added, null, 10]
+Product Added:
+- [Transition To Product Added, Product Added, null, 40]
+- [Transition To Product Removed, Product Removed, More Than One Item Available, 20]
+- [Transition To Product Removed, Empty Cart, Only One Item Available, 5]
+- [Transition To Empty Cart, Empty Cart, null, 10]
+- [Transition To Checkout, Checkout, null, 5]
+Product Removed:
+- [Transition To Product Added, Product Added, null, 10]
+- [Transition To Product Removed, Product Removed, More Than One Item Available, 10]
+- [Transition To Product Removed, Empty Cart, Only One Item Available, 5]
+- [Transition To Empty Cart, Empty Cart, null, 10]
+- [Transition To Checkout, Checkout, null, 5]
+Checkout:
+- [Transition To Empty Cart, Empty Cart, null, 5]
+- [Transition From Checkout To Empty Cart, Empty Cart, null, 20]
+CLEANUP:
+- [Cleanup, INIT, null, 10]
